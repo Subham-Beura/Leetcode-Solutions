@@ -5,24 +5,24 @@ class Solution(object):
         :type prerequisites: List[List[int]]
         :rtype: bool
         """
-        visitSet=set()
-        preq={i:[] for i in range(numCourses)}
-
-        for crs,prq in prerequisites:
-          preq[crs].append(prq)
-
-
-        def dfs(crs):
-          if crs in visitSet:
+        preq={}
+        for n in range(numCourses):
+          preq[n]=[]
+        for crs,pre in prerequisites:
+          preq[crs].append(pre)
+        visited=set()
+        def dfs(n):
+          if n in visited:
             return False
-          if preq[crs]==[]:
+          if preq[n] == []:
             return True
-          visitSet.add(crs)
-          for i in preq[crs]:
-            if not dfs(i) : return False
-          preq[crs]=[]
-          visitSet.remove(crs)
+          visited.add(n)
+          for c in preq[n]:
+            if not dfs(c): return False
+          visited.remove(n)
+          preq[n]=[]
           return True
-        for i in range(numCourses):
-          if not dfs(i): return False
+        for n in range(numCourses):
+          if not dfs(n): return False
         return True
+          
