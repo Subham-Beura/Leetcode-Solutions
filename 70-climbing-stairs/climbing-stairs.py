@@ -5,12 +5,14 @@ class Solution(object):
         :type n: int
         :rtype: int
         """
-        if n<=3: return n
-        ways=[-1]*(n+1)
-        ways[0]=0
-        ways[1]=1
-        ways[2]=2
-        for i in range(3,n+1):
-          ways[i]=ways[i-1]+ways[i-2]
-        return ways[n]
-                  
+        dp=[-1]*n
+        def noOfWays(i):
+          if i==n:
+            return 1
+          if i>n:
+            return 0
+          if dp[i]!=-1:
+            return dp[i]
+          dp[i]= noOfWays(i+1)+noOfWays(i+2)
+          return dp[i]
+        return noOfWays(0)        
