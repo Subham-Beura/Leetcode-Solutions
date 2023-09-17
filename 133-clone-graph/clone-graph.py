@@ -12,18 +12,19 @@ class Solution(object):
         :type node: Node
         :rtype: Node
         """
-        oldToNew={}
-
-        if not node:
-          return node
-        def clone(node):
+        newNode=None
+        oldToNew={} 
+        def dfs(node):
           if node in oldToNew:
             return oldToNew[node]
           copy=Node(node.val)
           oldToNew[node]=copy
-
-          for nei in node.neighbors:
-            copy.neighbors.append(clone(nei))
+          for n in node.neighbors:
+            copy.neighbors.append(dfs(n))
           return copy
 
-        return clone(node)
+        if node is None:
+          return node
+        newNode=dfs(node) 
+        print(newNode)
+        return newNode
