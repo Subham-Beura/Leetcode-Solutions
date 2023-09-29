@@ -31,8 +31,6 @@ class Solution(object):
                 nextlevel.append(node.left) 
               if node.right:
                 nextlevel.append(node.right)
-            thislevelval=[node.val for node in thislevel]
-            print(thislevelval)
             joinLevel(thislevel)
             thislevel=nextlevel
           return root
