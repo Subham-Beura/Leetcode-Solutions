@@ -13,7 +13,6 @@ class Solution(object):
         if minv>1:
           return 1
         
-        print(nums)
         for i in range(len(nums)):
           val=abs(nums[i])
           if 1<=val<=len(nums):
@@ -21,7 +20,6 @@ class Solution(object):
               nums[val-1]*=-1
             if nums[val-1]==0:
               nums[val-1]=(len(nums)+1)*-1
-        print(nums)
         for i in range(1,len(nums)+1):
           if nums[i-1]>=0:
             return i
