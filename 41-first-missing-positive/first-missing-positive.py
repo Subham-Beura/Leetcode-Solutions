@@ -4,15 +4,9 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
-        minv=9999999
         for i in range(len(nums)):
           if nums[i]<0:
             nums[i]=0
-          elif nums[i]<minv and nums[i]>0:
-            minv=nums[i]
-        if minv>1:
-          return 1
-        
         for i in range(len(nums)):
           val=abs(nums[i])
           if 1<=val<=len(nums):
