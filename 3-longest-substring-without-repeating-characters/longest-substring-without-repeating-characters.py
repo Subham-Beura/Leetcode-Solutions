@@ -4,14 +4,14 @@ class Solution(object):
         :type s: str
         :rtype: int
         """
-        res=0
-        charSet=set()
-        l,r=0,0
-        for i in range(len(s)):
-          while s[i] in charSet:
-            charSet.remove(s[l])
-            l+=1
-          charSet.add(s[r])
-          res=max(res,r-l+1) 
-          r+=1
-        return res
+        maxL=0
+        L,R=0,0
+        chars=set()
+        for R in range(len(s)):
+          while s[R] in chars:
+            chars.remove(s[L])
+            L+=1
+          print(s[L:R+1])
+          chars.add(s[R])
+          maxL=max(maxL,R-L+1)
+        return maxL
