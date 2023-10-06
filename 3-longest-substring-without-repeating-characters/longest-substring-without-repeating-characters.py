@@ -11,7 +11,6 @@ class Solution(object):
           while s[R] in chars:
             chars.remove(s[L])
             L+=1
-          print(s[L:R+1])
           chars.add(s[R])
           maxL=max(maxL,R-L+1)
         return maxL
