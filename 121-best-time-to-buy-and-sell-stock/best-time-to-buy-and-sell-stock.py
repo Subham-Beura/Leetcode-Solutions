@@ -9,7 +9,8 @@ class Solution(object):
         L=0
         for R in range(len(prices)):
           profit=prices[R]-prices[L]
-          maxProfit=max(maxProfit,profit)  
+          if profit>0:
+            maxProfit=max(maxProfit,profit)  
           if prices[R]<lowestPrice:
             L=R
             lowestPrice=prices[R]
