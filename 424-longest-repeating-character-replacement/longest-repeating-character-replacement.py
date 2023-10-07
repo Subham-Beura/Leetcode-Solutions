@@ -9,10 +9,11 @@ class Solution(object):
         res=0
 
         L=0
+        maxf=0
         for R in range(len(s)):
           count[s[R]]=1+count.get(s[R],0)
-
-          while (R+1-L)-max(count.values())>k:
+          maxf=max(maxf,count[s[R]])
+          while (R+1-L)-maxf>k:
             count[s[L]]-=1
             L+=1
           
