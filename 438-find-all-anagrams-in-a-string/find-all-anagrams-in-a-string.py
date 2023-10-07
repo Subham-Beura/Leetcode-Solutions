@@ -23,9 +23,6 @@ class Solution(object):
           windowSum+=ord(s[R])
           windowCounter[s[R]]=1+windowCounter.get(s[R],0)
           if pSum==windowSum :
-            print(L)
-            print(windowCounter)
-            print(pCounter)
             if windowCounter==pCounter:
               res.append(L)
           windowSum-=ord(s[L])
