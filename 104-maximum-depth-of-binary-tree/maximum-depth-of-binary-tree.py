@@ -14,10 +14,7 @@ class Solution(object):
 
           if not root:
             return 0
-          left,right=0,0
-          if root.left:
-            left=depth(root.left)
-          if root.right:
-            right=depth(root.right)
+          left=depth(root.left)
+          right=depth(root.right)
           return max(left,right)+1
         return depth(root)
