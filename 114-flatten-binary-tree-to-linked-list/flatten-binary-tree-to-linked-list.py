@@ -15,10 +15,10 @@ class Solution(object):
             return None
           leftTail=dfs(root.left)
           rightTail=dfs(root.right)
+
           if leftTail:
             leftTail.right=root.right
             root.right=root.left
             root.left=None
-          
           return rightTail or leftTail or root
         dfs(root)
