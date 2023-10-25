@@ -12,14 +12,22 @@ class Solution(object):
         """
         if not root:
           return []
-        res=[]
-        lot,level=[],[root]
-        while level:
-          lot.append([node.val for node in level])
-          res.append(level[-1].val)
-          temp=[]
-          for node in level:
-            temp.extend([node.left,node.right])
-          level=[child for child in temp if child]
-        return res 
+        left=self.rightSideView(root.left)
+        right=self.rightSideView(root.right)
+
+        return [root.val]+right+left[len(right):]
+
+
+        # if not root:
+        #   return []
+        # res=[]
+        # lot,level=[],[root]
+        # while level:
+        #   lot.append([node.val for node in level])
+        #   res.append(level[-1].val)
+        #   temp=[]
+        #   for node in level:
+        #     temp.extend([node.left,node.right])
+        #   level=[child for child in temp if child]
+        # return res 
         
