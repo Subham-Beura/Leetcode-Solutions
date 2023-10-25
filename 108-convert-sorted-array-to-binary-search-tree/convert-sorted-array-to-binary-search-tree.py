@@ -16,7 +16,6 @@ class Solution(object):
           if len(nums)==1:
             return TreeNode(nums[0])
           mid=len(nums)//2
-          print(mid)
           root=TreeNode(nums[mid])
           root.left=treeBuilder(nums[:mid])
           root.right=treeBuilder(nums[mid+1:])
