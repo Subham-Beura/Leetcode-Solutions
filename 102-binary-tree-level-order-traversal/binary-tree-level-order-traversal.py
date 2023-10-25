@@ -20,6 +20,7 @@ class Solution(object):
           nextLevel=[]
           for a in level:
             nextLevel.extend([a.left,a.right])
+          # Make nextLevel to level while remove nulls
           level=[child for child in nextLevel if child]
         return ans
 
