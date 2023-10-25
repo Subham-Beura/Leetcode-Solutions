@@ -11,14 +11,16 @@ class Solution(object):
         :rtype: bool
         """
         res=[]
+        isValid=True
         def inOrder(root):
           if root==None:
-            return 
-          inOrder(root.left)
+            return True
+          left=inOrder(root.left)
+          mid=True
+          if len(res)>0 and root.val <= res[-1]:
+            print(res[-1])
+            mid= False
           res.append(root.val)
-          inOrder(root.right)
-        inOrder(root)
-        for i in range(1,len(res)):
-          if res[i]<=res[i-1]:
-            return False
-        return True
+          right=inOrder(root.right)
+          return left and mid and right
+        return inOrder(root)
