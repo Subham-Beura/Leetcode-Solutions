@@ -18,7 +18,6 @@ class Solution(object):
           res.append(root.val)
           inOrder(root.right)
         inOrder(root)
-        print(res)
         for i in range(1,len(res)):
           if res[i]<=res[i-1]:
             return False
