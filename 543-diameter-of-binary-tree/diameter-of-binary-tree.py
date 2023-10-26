@@ -10,21 +10,18 @@ class Solution(object):
         :type root: TreeNode
         :rtype: int
         """
+        global maxd
+        maxd=0 
         def depth(root):
           if not root:
             return 0
           left=depth(root.right)
           right=depth(root.left)
-          return max(left,right)+1 
-        global maxd
-        maxd=0 
-        def dfs(root):
-          if not root:
-            return
-          dia=depth(root.right)+depth(root.left)
+          dia=left+right
           global maxd
           maxd=max(maxd,dia)
-          dfs(root.right)
-          dfs(root.left)
-        dfs(root)
+
+          
+          return max(left,right)+1 
+        depth(root)
         return maxd
