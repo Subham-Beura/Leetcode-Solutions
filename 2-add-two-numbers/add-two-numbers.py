@@ -28,10 +28,7 @@ class Solution(object):
           l2=l2.next
           place+=1
         sum=L1+L2
-        print(L1)
-        print(L2)
         l3=ListNode(0)
-        print(sum)
         res=l3
         while sum:
           l3.val=sum%10
