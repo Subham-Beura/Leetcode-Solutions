@@ -7,21 +7,15 @@ class Solution(object):
         :rtype: List[bool]
         """
         INF=999999999
-        graph=[[INF]*numCourses for _ in xrange(numCourses)]
+        graph=[[False]*numCourses for _ in xrange(numCourses)]
 
         for crs,preq in prerequisites:
-          graph[crs][preq]=1
+          graph[crs][preq]=True
         for k in xrange(numCourses):
           for src in xrange(numCourses):
             for dest in xrange(numCourses):
-              graph[src][dest]=min(
-                graph[src][dest],
-                graph[src][k]+graph[k][dest]
-              )
+              graph[src][dest]=graph[src][dest] or (graph[src][k] and graph[k][dest])
         res=[]
         for src,dest in queries:
-          if graph[src][dest]==INF:
-            res.append(False)
-            continue
-          res.append(True)
+          res.append(graph[src][dest])
         return res
