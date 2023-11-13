@@ -11,21 +11,23 @@ class Solution(object):
         for crs,preq in prerequisites:
           graph[crs].append(preq)
         
-        def dfs(src):
+        def coursePossible(src):
+          # Already done 
           if visited[src]==1:
             return True
+          # Cycle!!! 
           if visited[src]==-1:
             return False
           visited[src]=-1
-          for preq in graph[src]:
-            if not dfs(preq):
+          for n in graph[src]:
+            if not coursePossible(n):
               return False
           visited[src]=1
           return True
-        for i in range(numCourses):
-          if not dfs(i):
+
+        for i in xrange(numCourses):
+          if not coursePossible(i):
             return False
         return True
-          
         
           
