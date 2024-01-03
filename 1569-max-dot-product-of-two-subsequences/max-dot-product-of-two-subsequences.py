@@ -26,5 +26,4 @@ class Solution(object):
                 # Add
                 bothSide=dp[i-1][j-1]+nums1[i]*nums2[j]
                 dp[i][j]=max(bothSide,dp[i-1][j],dp[i][j-1],nums1[i]*nums2[j])
-        print(dp)
         return dp[n-1][m-1]
