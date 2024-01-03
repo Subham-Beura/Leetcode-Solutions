@@ -25,12 +25,6 @@ class Solution(object):
                 if j<m and s2[j]==s3[i+j] and dp[i][j+1]:
                     dp[i][j]=True
         return dp[0][0]
-
-        
-
-
-
-
         
         # if len(s1)+len(s2) !=len(s3):
         #     return False
