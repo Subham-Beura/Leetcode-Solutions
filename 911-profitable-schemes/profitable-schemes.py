@@ -19,8 +19,9 @@ class Solution(object):
                 cache[(i,no,score)]= 1 if score>=minProfit else 0
                 return cache[(i,no,score)]
             doJob,noJob=0,0
+            if no-group[i+1]>=0:
+                doJob=noSchemes(i+1,no-group[i+1],min(minProfit,score+profit[i+1]))
             noJob=noSchemes(i+1,no,score)
-            doJob=noSchemes(i+1,no-group[i+1],min(minProfit,score+profit[i+1]))
 
             cache[(i,no,score)]= doJob+noJob
             return cache[(i,no,score)]
