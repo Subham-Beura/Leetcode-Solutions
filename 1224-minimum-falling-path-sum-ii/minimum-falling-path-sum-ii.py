@@ -8,7 +8,7 @@ class Solution(object):
         R=len(matrix)
         C=len(matrix[0])
         for i in range(R-2,-1,-1):
-            print(matrix[i])
+            # print(matrix[i])
             nextRow=matrix[i+1]
             for j in range(C):
                 minv=99999999
