@@ -5,10 +5,20 @@ class Solution(object):
         :type target: int
         :rtype: int
         """
-        dp=[0]*(target+1)
-        dp[0]=1
-        for i in range(target+1):
-          for n in nums:
-            if i-n>=0:
-              dp[i]+=dp[i-n]
-        return dp[target]
+        dp=[-1]*(target+1)
+        def finder(target):
+            if target<0:
+                return 0
+            if target==0:
+                return 1
+            if dp[target] !=-1:
+                return dp[target]
+            totalWays=0
+            for n in nums:
+                totalWays+=finder(target-n)
+
+            dp[target]= totalWays
+            return totalWays
+        return finder(target)
+
+        
