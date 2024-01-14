@@ -10,6 +10,7 @@ class Solution(object):
                 return cache[(r,i)]
             if r==len(triangle):                
                 return 0
-            cache[(r,i)]= min(minTotal(r+1,i),minTotal(r+1,i+1))+triangle[r][i]
-            return cache[(r,i)]
+            res= min(minTotal(r+1,i),minTotal(r+1,i+1))+triangle[r][i]
+            cache[(r,i)]=res
+            return res
         return minTotal(0,0)
