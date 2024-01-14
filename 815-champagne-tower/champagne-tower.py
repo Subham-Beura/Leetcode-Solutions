@@ -9,7 +9,7 @@ class Solution(object):
         tower=[[0]*(i+1) for i in range(query_row+2) ]
         # Pouring
         tower[0][0]=poured
-        for i in range(query_row+2):
+        for i in range(query_row+1):
             for j in range(i+1):
                 if i==query_row and j==query_glass:
                     return min(tower[i][j],1.0) 
