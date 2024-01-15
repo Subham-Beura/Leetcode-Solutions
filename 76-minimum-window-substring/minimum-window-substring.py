@@ -13,8 +13,6 @@ class Solution:
         ans=""
         resLen=9999999
         while R<len(s):
-            # print(s[L:R+1])
-            # print(self.isWindow(s[L:R+1],charSet,countSet))
             if s[R] in t:
                 charSet[s[R]]+=1
             while self.isWindow(s[L:R+1],charSet,countSet):
@@ -28,9 +26,6 @@ class Solution:
         return ans
     def isWindow(self,s,charSet,countSet):
         for c in countSet:
-            # print(f"{c} {charSet[c]==countSet[c]}")
             if charSet[c]<countSet[c]:
-                # print(f"{s}: False")
                 return False
-        # print(f"{s}: True")
         return True
