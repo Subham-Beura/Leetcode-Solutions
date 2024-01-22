@@ -1,27 +1,29 @@
-class Solution(object):
-    def numIslands(self, grid):
-        """
-        :type grid: List[List[str]]
-        :rtype: int
-        """
-        def removeLand(r,c):
-          if r<0 or c<0 or r>=len(grid) or c>=len(grid[0]):
-            return 
-          if grid[r][c]=="0":
-            return 
-          grid[r][c]="0"
+class Solution:
+    def numIslands(self, grid: List[List[str]]) -> int:
+        m=len(grid)
+        n=len(grid[0])
+        discovered=[[False]*(n) for _ in range(m)]
+        res=0
+        def dfs(i,j):
+            # Out of bounds
+            if i<0 or j<0 or i>=m or j>=n:
+                return 
+            if discovered[i][j]:
+                return 
+            if grid[i][j]=="0":
+                return
+            discovered[i][j]=True
+            dfs(i+1,j)
+            dfs(i-1,j)
+            dfs(i,j-1)
+            dfs(i,j+1)
+        for r in range(m):
+            for c in range(n):
+                if not discovered[r][c] and grid[r][c]=="1":
+                    dfs(r,c)
+                    res+=1
+        return res
 
-          removeLand(r+1,c) #Up
-          removeLand(r-1,c) #Down
-          removeLand(r,c+1) #Right
-          removeLand(r,c-1) #Lefrt
 
+        
 
-        islandCount=0
-        for r in range(len(grid)):
-          for c in range(len(grid[0])):
-            if grid[r][c]=="1":
-              islandCount+=1
-              removeLand(r,c)
-
-        return islandCount
