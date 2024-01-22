@@ -2,7 +2,7 @@ class Solution:
     def longestIncreasingPath(self, matrix: List[List[int]]) -> int:
         m=len(matrix)
         n=len(matrix[0])
-        @cache
+        @lru_cache(None)
         def dfs(r,c):
             if r<0 or c<0 or r>=m or c>=n:
                 return 0
