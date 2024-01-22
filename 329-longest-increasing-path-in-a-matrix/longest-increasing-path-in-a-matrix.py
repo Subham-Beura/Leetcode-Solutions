@@ -5,8 +5,6 @@ class Solution:
         
         @lru_cache(None)
         def dfs(r,c):
-            # if r<0 or c<0 or r>=m or c>=n:
-            #     return 0
             directions=[[0,1],[0,-1],[1,0],[-1,0]]
             res=0
             for d in directions:
