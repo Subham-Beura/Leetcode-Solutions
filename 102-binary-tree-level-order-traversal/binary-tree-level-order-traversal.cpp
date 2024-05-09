@@ -19,8 +19,9 @@ public:
         vector<TreeNode*> nextLevel;
         currLevel.push_back(root);
 
-        while(currLevel.size()!=0){
             vector<int> nodeValueCurrLevel;
+        while(currLevel.size()!=0){
+            nodeValueCurrLevel={};
             for(TreeNode* n:currLevel){
                 nodeValueCurrLevel.push_back(n->val);
                 if(n->left)
