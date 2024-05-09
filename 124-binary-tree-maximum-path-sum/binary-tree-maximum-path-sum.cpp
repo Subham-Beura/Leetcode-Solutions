@@ -25,6 +25,6 @@ public:
     int maxPathSum(TreeNode* root) {
         maxPath=root->val;
         int woroot=maxPathFromRootToLeaf(root);
-        return max({maxPath,woroot});
+        return max(maxPath,woroot);
     }
 };
