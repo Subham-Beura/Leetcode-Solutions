@@ -1,18 +1,10 @@
-class Solution(object):
-    
-    def climbStairs(self, n):
-        """
-        :type n: int
-        :rtype: int
-        """
-        dp=[-1]*n
-        def noOfWays(i):
-          if i==n:
+class Solution:
+    def climbStairs(self, n: int) -> int:
+        if n==1:
             return 1
-          if i>n:
-            return 0
-          if dp[i]!=-1:
-            return dp[i]
-          dp[i]= noOfWays(i+1)+noOfWays(i+2)
-          return dp[i]
-        return noOfWays(0)        
+        dp=[0]*(n+1)
+        dp[1]=1
+        dp[2]=2
+        for i in range(3,n+1):
+            dp[i]=dp[i-1]+dp[i-2]
+        return dp[n]
