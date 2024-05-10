@@ -1,24 +1,20 @@
-class Solution(object):
-    def coinChange(self, coins, amount):
-        """
-        :type coins: List[int]
-        :type amount: int
-        :rtype: int
-        """
-        dp=[-1]*(amount+1)
-        def findMinCoins(coins,a):
-          if a==0: return 1
-          if a<0: return -1
-          if dp[a]!= -1:
-            return dp[a]
-          minCoins=9999999
-          for c in coins:
-            newMinCoins=findMinCoins(coins,a-c)
-            if newMinCoins==-1:
-              continue
-            minCoins=min(minCoins,newMinCoins+1)
-          dp[a]=minCoins
-          return minCoins
+class Solution:
+    def coinChange(self, coins: List[int], amount: int) -> int:
+        if amount==0:
+            return 0
+        if amount in coins:
+            return 1
+        dp=[1000000000]*(amount+1) 
+        for c in coins:
+            if c<amount:
+                dp[c]=1
+        for i in range(1,amount+1):
+            if dp[i]==1:
+                continue
+            for c in coins:
+                if i-c>=0:
+                    dp[i]=min(dp[i],dp[i-c]+1)
+            
+        return dp[amount] if dp[amount]!=1000000000 else -1
 
-        res= findMinCoins(coins,amount)-1
-        return res if res!=9999998 else -1
+    
