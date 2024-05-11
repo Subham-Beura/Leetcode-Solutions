@@ -14,7 +14,6 @@ class Solution:
         rightHeight=self.maxHeight(root.right)
 
         self.diameter=max(self.diameter,leftHeight+rightHeight+1)
-        print(f"{root.val}: {self.diameter}")
         return max(leftHeight,rightHeight)+1
 
     def diameterOfBinaryTree(self, root: Optional[TreeNode]) -> int:
