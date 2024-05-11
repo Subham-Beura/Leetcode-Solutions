@@ -10,7 +10,6 @@ class Solution:
             return None
         
         self.flattenHelper(root)
-        print(root)
         return root
     def flattenHelper(self, root: Optional[TreeNode]) -> None:
         """
