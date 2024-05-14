@@ -1,8 +1,6 @@
 class Solution:
     visited=set()
     def exploreAll(self,V,adj):
-        if V in self.visited:
-            return
         self.visited.add(V)
         for i in range(len(adj[0])):
             if adj[V][i]==1 and i not in self.visited:
