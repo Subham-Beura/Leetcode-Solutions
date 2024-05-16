@@ -35,8 +35,8 @@ class Solution:
         h,w=len(board),len(board[0])
         for r in range(h):
             for c in range(w):
-                if board[r][c]=="O":
-                    self.path=[]
+                self.path=[]
+                if board[r][c]=="O" and (r in [0,h-1] or c in [0, w-1]):
                     if (r in [0,h-1] or c in [0, w-1]):
                         self.fill(r,c,board)
         for r in range(h):
