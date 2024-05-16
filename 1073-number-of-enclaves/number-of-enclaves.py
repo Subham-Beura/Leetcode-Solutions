@@ -1,8 +1,6 @@
 class Solution:
     def flagCanGetOutSideCell(self,r,c,grid):
         h,w=len(grid),len(grid[0])
-        print(r)
-        print(c)
         if r<0 or c<0 or r>=h or c>=w or grid[r][c] in [0,-1]:
             return
         grid[r][c]=-1
