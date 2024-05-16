@@ -18,15 +18,16 @@ class Solution:
         """
         Do not return anything, modify board in-place instead.
         """
+        self.path=[]
         h,w=len(board),len(board[0])
         for r in range(h):
             for c in [0,w-1]:
-                self.path=[]
+                # self.path=[]
                 if board[r][c]=="O":
                     self.fill(r,c,board)
         for r in [0,h-1]:
             for c in range(w):
-                self.path=[]
+                # self.path=[]
                 if board[r][c]=="O":
                     self.fill(r,c,board)
         for r in range(h):
