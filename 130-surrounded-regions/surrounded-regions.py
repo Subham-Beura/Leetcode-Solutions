@@ -18,6 +18,7 @@ class Solution:
         """
         Do not return anything, modify board in-place instead.
         """
+        self.path=[]
         h,w=len(board),len(board[0])
         for r in range(h):
             for c in [0,w-1]:
