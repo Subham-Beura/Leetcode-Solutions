@@ -31,6 +31,7 @@ class Solution:
         
         for crs,preq in prerequisites:
             G[preq].append(crs)
+
         for i in range(numCourses):
             if i in self.visited:
                 continue
