@@ -1,26 +1,41 @@
 class Solution:
+    visited=set()
+    # res=deqeue()
+    path=[]
+    def dfs(self,node,G):
+        
+        self.visited.add(node)
+        if node in self.path:
+            return False
+        self.path.append(node)
+        for crs in G[node]:
+            if crs in self.path:
+                print(node)
+                return False
+            if crs in self.visited:
+                continue
+            if not self.dfs(crs,G):
+                return False
+        self.path.remove(node)
+        return True
+
+
+
     def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
         # Set up preq graph
-        preqs={i:[] for i in range(numCourses)}
-        for c,p in prerequisites:
-            preqs[c].append(p)
-        visited=set()
-
-        def dfs(c):
-            if c in visited:
-                return False
-            if preqs[c]==[]:
-                return True
-            
-            visited.add(c)
-            for p in preqs[c]:
-                if not dfs(p):
-                    return False
-            visited.remove(c)
-            preqs[c]=[]
+        if  len(prerequisites)<2:
             return True
-        for c in range(numCourses):
-            if not dfs(c):
+
+        self.visited=set()
+        self.path=[]
+        G=[[] for _ in range(numCourses)]
+        
+        for crs,preq in prerequisites:
+            G[preq].append(crs)
+        print(G)
+        for i in range(numCourses):
+            if i in self.visited:
+                continue
+            if not self.dfs(i,G):
                 return False
         return True
-            
