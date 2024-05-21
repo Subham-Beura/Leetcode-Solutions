@@ -10,7 +10,6 @@ class Solution:
         self.path.append(node)
         for crs in G[node]:
             if crs in self.path:
-                print(node)
                 return False
             if crs in self.visited:
                 continue
@@ -32,7 +31,6 @@ class Solution:
         
         for crs,preq in prerequisites:
             G[preq].append(crs)
-        print(G)
         for i in range(numCourses):
             if i in self.visited:
                 continue
