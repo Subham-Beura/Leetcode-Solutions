@@ -4,7 +4,7 @@ class Solution:
             return 0
         if amount in coins:
             return 1
-        dp=[1000000000]*(amount+1) 
+        dp=[float("inf")]*(amount+1) 
         for c in coins:
             if c<amount:
                 dp[c]=1
@@ -15,6 +15,6 @@ class Solution:
                 if i-c>=0:
                     dp[i]=min(dp[i],dp[i-c]+1)
             
-        return dp[amount] if dp[amount]!=1000000000 else -1
+        return dp[amount] if dp[amount]!=float("inf") else -1
 
     
