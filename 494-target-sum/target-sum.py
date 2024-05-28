@@ -2,6 +2,7 @@ class Solution:
     def findTargetSumWays(self, nums: List[int], target: int) -> int:
         dp={}
         n=len(nums)
+        @cache
         def findWays(i,value):
             if i==n:
                 return 1 if value==target else 0
