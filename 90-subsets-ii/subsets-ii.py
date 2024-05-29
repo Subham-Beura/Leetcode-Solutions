@@ -1,24 +1,16 @@
-class Solution(object):
-    def subsetsWithDup(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: List[List[int]]
-        """
-        res=[]
+class Solution:
+    def subsetsWithDup(self, nums: List[int]) -> List[List[int]]:
         nums.sort()
         n=len(nums)
-        def dfs(i,cur):
-          if i==n:
-            res.append(cur) 
-            return
-          if i>=n:
-            return
-          # Take It
-          dfs(i+1,cur+[nums[i]])
-          # Ignore all other of this kind
-          old=nums[i]
-          while i<len(nums) and nums[i]==old:
-            i+=1
-          dfs(i,cur)
+        res=[]
+        def dfs(i,path):
+            if i>=n:
+                res.append(path)
+                return
+            dfs(i+1,path+[nums[i]])
+            old=nums[i]
+            while(i+1<n and nums[i+1]==old):
+                i+=1
+            dfs(i+1,path)
         dfs(0,[])
         return res
