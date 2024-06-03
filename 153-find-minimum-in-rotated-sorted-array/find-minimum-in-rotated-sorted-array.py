@@ -13,7 +13,7 @@ class Solution:
             
             if M!=0 and nums[M-1]>m: 
                 return nums[M] 
-            if m<=r and m<=l:
+            if m<=r:
                 R=M-1
             else:
                 L=M+1
