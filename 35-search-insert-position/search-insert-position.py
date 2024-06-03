@@ -9,5 +9,5 @@ class Solution:
                 R=M-1
             else:
                 L=M+1
-        return R+1
+        return L
     
