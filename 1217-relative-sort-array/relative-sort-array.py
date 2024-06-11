@@ -11,8 +11,6 @@ class Solution:
             counter[n]=0
         counter=dict(sorted(counter.items()))
         for k,v in counter.items():
-            if v==0:
-                continue
             for c in range(v):
                  res[count]=k
                  count+=1
