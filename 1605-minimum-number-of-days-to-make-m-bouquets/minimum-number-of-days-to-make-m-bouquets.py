@@ -1,13 +1,8 @@
 class Solution:
     def checkIfPossibleToday(self,i,bloomDay,noOfB,flowers):
-        for it in range(0,len(bloomDay)):
-            bloomDay[it]=abs(bloomDay[it])
-        for it,bd in enumerate(bloomDay):
-            if bd<=i:
-                bloomDay[it]*=-1
         L,R=0,0
         while R<len(bloomDay):
-            if bloomDay[R]>0:
+            if bloomDay[R]>i:
                 R+=1
                 L=R
             elif R-L+1==flowers:
