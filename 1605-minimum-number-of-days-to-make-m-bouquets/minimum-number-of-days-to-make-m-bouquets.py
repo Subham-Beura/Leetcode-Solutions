@@ -17,7 +17,6 @@ class Solution:
 
     def minDays(self, bloomDay: List[int], m: int, k: int) -> int:
         L,R=1,max(bloomDay)
-        check=self.checkIfPossibleToday
         while L<=R:
             mid=(L+R)//2
             check_mid=self.checkIfPossibleToday(mid,bloomDay,m,k)
