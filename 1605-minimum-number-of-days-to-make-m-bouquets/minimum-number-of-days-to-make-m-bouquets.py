@@ -17,17 +17,17 @@ class Solution:
 
     def minDays(self, bloomDay: List[int], m: int, k: int) -> int:
         L,R=1,max(bloomDay)
+        ans=-1
         while L<=R:
             mid=(L+R)//2
             check_mid=self.checkIfPossibleToday(mid,bloomDay,m,k)
             # print(f"{L} {mid} {R} {check_mid}")
-            if check_mid and not self.checkIfPossibleToday(mid-1,bloomDay,m,k):
-                return mid
-            elif not check_mid:
-                L=mid+1
-            else:
+            if check_mid:
+                ans=mid
                 R=mid-1
-        return -1
+            else:
+                L=mid+1
+        return ans
 
         
         
