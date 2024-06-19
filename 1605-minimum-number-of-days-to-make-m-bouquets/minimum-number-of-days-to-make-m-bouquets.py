@@ -16,6 +16,9 @@ class Solution:
         return res
 
     def minDays(self, bloomDay: List[int], m: int, k: int) -> int:
+        if len(bloomDay) < (m * k):
+            return -1
+
         L,R=1,max(bloomDay)
         ans=-1
         while L<=R:
