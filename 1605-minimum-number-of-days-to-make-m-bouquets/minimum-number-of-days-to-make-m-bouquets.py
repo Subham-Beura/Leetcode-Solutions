@@ -1,17 +1,15 @@
 class Solution:
-    def checkIfPossibleToday(self,i,bloomDay,noOfB,flowers):
-        L,R=0,0
-        while R<len(bloomDay):
-            if bloomDay[R]>i:
-                R+=1
-                L=R
-            elif R-L+1==flowers:
-                noOfB-=1
-                L=R+1
-                R=L
+    def checkIfPossibleToday(self,i,bloomDay,noOfB,k):
+        consecutive_length, bouquets = 0, 0
+        for bloom in bloomDay:
+            if bloom <= i:
+                consecutive_length += 1
+                if consecutive_length >= k:
+                    consecutive_length = 0
+                    bouquets += 1
             else:
-                R+=1
-        res=noOfB<=0
+                consecutive_length = 0
+        res=bouquets>=noOfB
         # print(res)
         return res
 
