@@ -13,12 +13,6 @@ class Solution:
         def helper(n):
             if n in path:
                 return False
-            if n in (2,3,5,6,8,9):
-                return False
-            if n==self.n:
-                return False
-            if self.n==0:
-                self.n=n
             sumOfSquare=getSumOfSquares(n) 
             if sumOfSquare==1:
                 return True
