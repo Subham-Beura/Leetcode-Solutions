@@ -7,14 +7,14 @@
 class Solution:
     inord=[]
     c=0
-    def inorder(self,root):
+    def reverseInorder(self,root):
         if not root:
             return 
-        self.inorder(root.right)
+        self.reverseInorder(root.right)
         self.c+=root.val
         root.val=self.c
-        self.inorder(root.left)
+        self.reverseInorder(root.left)
     def bstToGst(self, root: TreeNode) -> TreeNode:
-        self.inorder(root)
+        self.reverseInorder(root)
         return root
         
