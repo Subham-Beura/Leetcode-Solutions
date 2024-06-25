@@ -5,7 +5,6 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    inord=[]
     c=0
     def reverseInorder(self,root):
         if not root:
