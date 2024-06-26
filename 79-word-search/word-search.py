@@ -20,6 +20,6 @@ class Solution:
         res=False
         for r in range(0,R):
             for c in range(0,C):
-                if checkFrom(r,c,0,[]):
+                if board[r][c]==word[0] and  checkFrom(r,c,0,[]):
                     return True
         return False
