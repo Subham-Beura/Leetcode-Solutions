@@ -12,9 +12,11 @@ class Solution:
                 return False
             # print(f"{r} {c} {word[i]} {board[r][c]}")
             res=False
+            path.append((r,c))
             for v,h in directions:
                 if (r+v,c+h) not in path:
-                    res=res or checkFrom(r+v,c+h,i+1,path+[(r,c)]) 
+                    res=res or checkFrom(r+v,c+h,i+1,path) 
+            path.remove((r,c))
             return res
         res=False
         for r in range(0,R):
