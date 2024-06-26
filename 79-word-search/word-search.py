@@ -12,7 +12,7 @@ class Solution:
                 return False
             # print(f"{r} {c} {word[i]} {board[r][c]}")
             res=False
-            path.append((r,c))
+            path.add((r,c))
             for v,h in directions:
                 if (r+v,c+h) not in path:
                     res=res or checkFrom(r+v,c+h,i+1,path) 
@@ -21,6 +21,6 @@ class Solution:
         res=False
         for r in range(0,R):
             for c in range(0,C):
-                if board[r][c]==word[0] and  checkFrom(r,c,0,[]):
+                if board[r][c]==word[0] and  checkFrom(r,c,0,set()):
                     return True
         return False
