@@ -28,7 +28,8 @@ class Solution:
             if not u :
                 uneededEdges+=1
         noOfCluster=len(set([find(i) for i in parent])) 
-        if uneededEdges<noOfCluster-1:
+        minEdgesForFullConnection=noOfCluster-1
+        if uneededEdges<minEdgesForFullConnection:
             return -1
         
         return noOfCluster-1
