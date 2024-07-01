@@ -32,10 +32,12 @@ public:
             return nullptr;
         if (!head->next)
             return head;
+        
         ListNode* reversedListLast=head->next;
         ListNode* reversed=reverseList(head->next);
         reversedListLast->next=head;
         head->next=nullptr;
+
         return reversed;
     }
 };
