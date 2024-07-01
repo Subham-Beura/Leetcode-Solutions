@@ -24,16 +24,12 @@ class Solution:
             return True
         uneededEdges=[]
         for n1,n2 in connections:
-            # noOfCluster=len(set(parent))
             u=union(n1,n2)
-            # print(u)
             if not u :
                 uneededEdges.append((n1,n2))
         for i in range(n):
             find(i)
         noOfCluster=len(set(parent)) 
-        # print(uneededEdges)
-        # print(noOfCluster)
         if len(uneededEdges)<noOfCluster-1:
             return -1
         
