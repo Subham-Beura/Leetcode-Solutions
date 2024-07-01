@@ -27,9 +27,7 @@ class Solution:
             u=union(n1,n2)
             if not u :
                 uneededEdges.append((n1,n2))
-        for i in range(n):
-            find(i)
-        noOfCluster=len(set(parent)) 
+        noOfCluster=len(set([find(i) for i in parent])) 
         if len(uneededEdges)<noOfCluster-1:
             return -1
         
