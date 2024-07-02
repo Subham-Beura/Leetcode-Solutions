@@ -1,6 +1,8 @@
 class Solution {
 public:
     int appendCharacters(string s, string t) {
+        ios_base::sync_with_stdio(false);
+        cin.tie(nullptr);
         int j = 0;
         for (char c : s) {
             if (c == t[j])
@@ -9,9 +11,3 @@ public:
         return t.size() - j;
     }
 };
-auto init = []() {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
-    cout.tie(nullptr);
-    return 'c';
-}();
