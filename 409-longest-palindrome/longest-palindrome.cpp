@@ -13,7 +13,6 @@ public:
             }
             sum += it->second - 1;
             maxOdd = true;
-            continue;
         }
         return maxOdd ? sum + 1 : sum;
     }
