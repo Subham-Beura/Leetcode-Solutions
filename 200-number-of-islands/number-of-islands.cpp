@@ -15,6 +15,8 @@ public:
         return true;
     }
     int numIslands(vector<vector<char>>& G) {
+        ios_base::sync_with_stdio(false);
+        cin.tie(nullptr);
         int R = G.size();
         int C = G[0].size();
         int res = 0;
