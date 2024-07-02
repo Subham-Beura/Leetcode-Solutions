@@ -15,6 +15,6 @@ public:
             maxOdd = true;
             continue;
         }
-        return maxOdd ?  sum + 1 : sum;
+        return maxOdd ? sum + 1 : sum;
     }
 };
