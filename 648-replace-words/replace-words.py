@@ -3,7 +3,7 @@ class Solution:
         dictionary.sort()
         sentence=sentence.split(" ")
         res=""
-        print(sentence)
+        # print(sentence)
         for i,word in enumerate(sentence):
             for root in dictionary:
                 if root in word[:len(root)]:
