@@ -9,12 +9,9 @@ public:
             map[nums1[i]]++;
         }
 
-        // for(auto it=map.begin();it!=map.end();it++) {
-        //     cout<<it->first<<" : "<<it->second<<endl;
-        // }
         vector<int> res;
         for(int a:nums2){
-            if(!map[a] || map[a]==0)
+            if(!map[a])
                 continue;
             map[a]--; 
             res.push_back(a);
