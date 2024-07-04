@@ -14,7 +14,7 @@ public:
         ios_base::sync_with_stdio(false);
         cin.tie(nullptr);
 
-        ListNode *start = head, *curr = head->next;
+        ListNode *curr = head->next;
         int sum = 0;
         ListNode* newHead = nullptr;
         ListNode* newCurr = nullptr;
