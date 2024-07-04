@@ -13,29 +13,28 @@ public:
     ListNode* mergeNodes(ListNode* head) {
         ios_base::sync_with_stdio(false);
         cin.tie(nullptr);
-        
-        ListNode* start=head,*curr=head->next;
-        int sum=0;
-        ListNode* newHead=NULL;
-        ListNode* newCurr=NULL;
-        while(curr!=NULL){
-            if(curr->val==0){
-                ListNode* newNode=new ListNode(sum);
-                sum=0;
-                if(newHead==NULL){
-                    newHead=newNode;
-                    newCurr=newNode;
-                }else{
-                    newCurr->next=newNode;
-                    newCurr=newCurr->next;
-                }
-                curr=curr->next;
+
+        ListNode *start = head, *curr = head->next;
+        int sum = 0;
+        ListNode* newHead = NULL;
+        ListNode* newCurr = NULL;
+        while (curr != NULL) {
+            if (curr->val != 0) {
+                sum += curr->val;
+                curr = curr->next;
                 continue;
             }
-            sum+=curr->val;
-            curr=curr->next;
+            ListNode* newNode = new ListNode(sum);
+            sum = 0;
+            if (newHead == NULL) {
+                newHead = newNode;
+                newCurr = newNode;
+            } else {
+                newCurr->next = newNode;
+                newCurr = newCurr->next;
+            }
+            curr = curr->next;
         }
-        return newHead; 
-        
+        return newHead;
     }
 };
