@@ -3,8 +3,8 @@
  * struct ListNode {
  *     int val;
  *     ListNode *next;
- *     ListNode() : val(0), next(nullptr) {}
- *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode() : val(0), next(nullptrptr) {}
+ *     ListNode(int x) : val(x), next(nullptrptr) {}
  *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
  */
@@ -16,9 +16,9 @@ public:
 
         ListNode *start = head, *curr = head->next;
         int sum = 0;
-        ListNode* newHead = NULL;
-        ListNode* newCurr = NULL;
-        while (curr != NULL) {
+        ListNode* newHead = nullptr;
+        ListNode* newCurr = nullptr;
+        while (curr != nullptr) {
             if (curr->val != 0) {
                 sum += curr->val;
                 curr = curr->next;
@@ -26,7 +26,7 @@ public:
             }
             ListNode* newNode = new ListNode(sum);
             sum = 0;
-            if (newHead == NULL) {
+            if (newHead == nullptr) {
                 newHead = newNode;
                 newCurr = newNode;
             } else {
