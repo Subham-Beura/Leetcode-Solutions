@@ -5,5 +5,4 @@ class Solution:
             if i>maxRange:
                 return False
             maxRange=max(maxRange,n+i)
-        print(maxRange)
         return maxRange>=len(nums)-1
