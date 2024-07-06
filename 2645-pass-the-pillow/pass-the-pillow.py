@@ -8,7 +8,6 @@ class Solution:
             if i==1:
                 direction=1
             i+=1*direction
-            print(i)
         return i
             
 
