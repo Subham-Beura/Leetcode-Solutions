@@ -9,8 +9,8 @@ class Solution:
             timeTaken=customer[i][1]
 
             if entryTime>busyTill:
-                total+=timeTaken
                 busyTill=entryTime+timeTaken
+                total+=timeTaken
             else:
                 busyTill+=timeTaken
                 total+=busyTill-entryTime
