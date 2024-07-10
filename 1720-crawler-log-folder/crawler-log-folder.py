@@ -1,7 +1,6 @@
 class Solution:
     def minOperations(self, logs: List[str]) -> int:
         count=0
-        stack=[]
         for cmd in logs:
             if cmd=='./':
                 continue
