@@ -5,9 +5,8 @@ class Solution:
             if cmd=='./':
                 continue
             elif cmd=="../":
-                if count==0:
-                    continue
                 count-=1
+                count=max(0,count)
             else:
                 count+=1
         return count
