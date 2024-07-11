@@ -38,11 +38,9 @@ class Solution:
             map={r:[] for r in rows }
             for n in nodes:
                 map[n[1]].append(n[0])
-            for k in map.keys():
-                map[k].sort()
-            # print(map)
             thisLevel=[]
             for k in sorted(map.keys()):
+                map[k].sort()
                 thisLevel+=map[k]
             res.append(thisLevel)
         return res
