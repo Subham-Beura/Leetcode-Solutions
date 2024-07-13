@@ -12,19 +12,18 @@ class Solution:
         stack=[robots[0]]
         for i in range(1,len(robots)):
             newR=robots[i]
-            # print(f"-----{newR}----")
-            # print(stack)
             while stack and newR[2]<0 and stack[-1][2]>0 and newR[1]>0:
-                # print(newR)
-                # print(stack)
                 wDiff=newR[1]-stack[-1][1]
                 if wDiff>0:
                     # NewR survives
+                    # Kill stacktop
                     healths[stack[-1][3]]=0
+                    stack.pop()
+                    # Reduce Health of newR by 1
                     newR[1]=max(0,newR[1]-1)
                     healths[newR[3]]=newR[1]
-                    stack.pop()
                 elif wDiff==0:
+                    # Kill Both
                     stack[-1][1]=0
                     healths[stack[-1][3]]=0
                     newR[1]=0
@@ -32,18 +31,16 @@ class Solution:
                     stack.pop()
                 else:
                     # OldOneSurvives
+                    # Reduce Health of stackTop
                     stack[-1][1]=max(0,stack[-1][1]-1)
                     healths[stack[-1][3]]=stack[-1][1]
+                    # kill New One
                     newR[1]=0
                     healths[newR[3]]=0
+            # If NewOne survives,add to stack
             if newR[1]>0:
                 stack.append(newR)
             
-        # print(stack)
-        # print(robots) 
-        # print(healths)
-        # res=[i[1] for _ in robots]
-        # return res
         res=[]
         for h in healths:
             if h>0:
