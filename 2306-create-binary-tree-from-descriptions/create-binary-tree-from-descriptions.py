@@ -14,9 +14,9 @@ class Solution:
             p=n[0]
             c=n[1]
             isLeft=n[2]
-            if c not in vToNode.keys():
+            if c not in vToNode:
                 vToNode[c]=TreeNode(c)
-            if p not in vToNode.keys():
+            if p not in vToNode:
                 vToNode[p]=TreeNode(p)
             allNode.add(c)
             if isLeft==1:
