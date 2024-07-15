@@ -20,6 +20,6 @@ class Solution:
                 map[p].left=map[c]
             else:
                 map[p].right=map[c]
-        root=list(allNode)[0]
+        root=allNode.pop()
         return map[root]
             
