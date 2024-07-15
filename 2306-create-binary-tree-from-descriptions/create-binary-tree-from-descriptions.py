@@ -9,22 +9,22 @@ class Solution:
         # map={node:parent}
 
         allNode=set()
-        map={}
+        vToNode={}
         for n in descriptions:
             p=n[0]
             c=n[1]
             isLeft=n[2]
-            if c not in map.keys():
-                map[c]=TreeNode(c)
-            if p not in map.keys():
-                map[p]=TreeNode(p)
+            if c not in vToNode.keys():
+                vToNode[c]=TreeNode(c)
+            if p not in vToNode.keys():
+                vToNode[p]=TreeNode(p)
             allNode.add(c)
             if isLeft==1:
-                map[p].left=map[c]
+                vToNode[p].left=vToNode[c]
             else:
-                map[p].right=map[c]
-        for node in map.keys():
+                vToNode[p].right=vToNode[c]
+        for node in vToNode.keys():
             if node not in allNode:
-                return map[node]
+                return vToNode[node]
         return None
             
