@@ -4,12 +4,18 @@ class Solution:
         count=0
         arr=[0]*(len(s))
         for i,c in enumerate(s):
-            if c==')' and stack and  stack[-1][0]=='(':
-                arr[stack[-1][1]]=1
+            # print(i)
+            # print(c)
+            # print(stack)
+            # print(arr)
+            if c==')' and stack :
+                arr[stack[-1]]=1
                 arr[i]=1
                 stack.pop()
-            else:
-                stack.append((c,i))
+                continue
+            if c=='(':
+                stack.append(i)
+        # print(arr)
         maxCount=0 
         for a in arr:
             if a==0:
