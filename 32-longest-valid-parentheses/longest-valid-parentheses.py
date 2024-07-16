@@ -9,9 +9,8 @@ class Solution:
             # print(stack)
             # print(arr)
             if c==')' and stack :
-                arr[stack[-1]]=1
+                arr[stack.pop()]=1
                 arr[i]=1
-                stack.pop()
                 continue
             if c=='(':
                 stack.append(i)
