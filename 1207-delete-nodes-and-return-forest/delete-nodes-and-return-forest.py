@@ -13,14 +13,17 @@ class Solution:
                 return
             dfs(root.left,root)
             dfs(root.right,root)
-            if root.val in to_delete:
-                root.left and forest.append(root.left)
-                root.right and forest.append(root.right)
-                if parent.left==root:
-                    parent.left=None
-                else:
-                    parent.right=None
-            return 
+            
+            if root.val not in to_delete:
+                return 
+
+            root.left and forest.append(root.left)
+            root.right and forest.append(root.right)
+            if parent.left==root:
+                parent.left=None
+            else:
+                parent.right=None
+        
         dfs(root,root)
         if root.val not in to_delete:
             forest.append(root)
