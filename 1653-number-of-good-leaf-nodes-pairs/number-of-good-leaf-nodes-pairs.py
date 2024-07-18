@@ -23,8 +23,6 @@ class Solution:
         rightLeafs=[r+1 for r in rightLeafs]
         self.distToLeaf[root]=rightLeafs+leftLeafs
 
-        if not leftLeafs or not rightLeafs:
-            return 
 
         for l in leftLeafs:
             for r in rightLeafs:
