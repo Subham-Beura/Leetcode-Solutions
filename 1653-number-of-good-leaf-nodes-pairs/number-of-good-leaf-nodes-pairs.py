@@ -16,8 +16,8 @@ class Solution:
         self.getDistToLeaf(root.left,d)
         self.getDistToLeaf(root.right,d)
         
-        leftLeafs=self.distToLeaf[root.left][::] if root.left else []
-        rightLeafs=self.distToLeaf[root.right][::] if root.right else []
+        leftLeafs=self.distToLeaf[root.left] if root.left else []
+        rightLeafs=self.distToLeaf[root.right] if root.right else []
         
         leftLeafs=[l+1 for l in leftLeafs]
         rightLeafs=[r+1 for r in rightLeafs]
