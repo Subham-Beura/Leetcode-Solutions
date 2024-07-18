@@ -6,6 +6,8 @@
 #         self.right = right
 class Solution:
     distToLeaf={}
+    count=0
+    d=0
     def getDistToLeaf(self,root):
         if not root:
             return
@@ -14,42 +16,29 @@ class Solution:
             return
         self.getDistToLeaf(root.left)
         self.getDistToLeaf(root.right)
-        leftLeafs=[]
-        rightLeafs=[]
-        if root.left:
-            leftLeafs=self.distToLeaf[root.left][::]
-        if root.right:
-            rightLeafs=self.distToLeaf[root.right][::]
         
-        self.distToLeaf[root]=[]
-        for i,l in enumerate(leftLeafs):
-            leftLeafs[i]+=1
+        leftLeafs=self.distToLeaf[root.left][::] if root.left else []
+        rightLeafs=self.distToLeaf[root.right][::] if root.right else []
+        
+        leftLeafs=[l+1 for l in leftLeafs]
+        rightLeafs=[r+1 for r in rightLeafs]
 
-        for i,l in enumerate(rightLeafs):
-            rightLeafs[i]+=1
         self.distToLeaf[root]=rightLeafs+leftLeafs
+        if not leftLeafs or not rightLeafs:
+            return 
+        # print(root.val)
+        for l in leftLeafs:
+            for r in rightLeafs:
+                # print(f"{l} {r}")
+                if l+r<=self.d:
+                    
+                    self.count+=1
         return 
-    count=0
     def countPairs(self, root: TreeNode, distance: int) -> int:
         self.distToLeaf={}
+        self.d=distance
         self.getDistToLeaf(root)
         distToLeaf=self.distToLeaf
         # for k in self.distToLeaf:
         #     print(f"{k.val} : {self.distToLeaf[k]}")
-        def dfs(root):
-            if not root:
-                return
-            dfs(root.left)
-            dfs(root.right)
-            leftLeafs=distToLeaf[root.left] if root.left else []
-            rightLeafs=distToLeaf[root.right] if root.right else []
-            if not leftLeafs or not rightLeafs:
-                return
-            # print(root.val)
-            for l in leftLeafs:
-                for r in rightLeafs:
-                    if l+r+2<=distance:
-                        # print(f"{l} {r} ")
-                        self.count+=1
-        dfs(root)
         return self.count
