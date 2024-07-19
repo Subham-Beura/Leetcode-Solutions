@@ -1,6 +1,8 @@
 class Solution {
 public:
     vector<int> luckyNumbers (vector<vector<int>>& matrix) {
+        ios_base::sync_with_stdio(false);
+        cin.tie(nullptr);
         vector<int> minInRow(matrix.size(),INT_MAX),maxInCol(matrix[0].size(),INT_MIN);
         for(int r=0;r<matrix.size();r++){
             for (int c=0;c<matrix[0].size();c++){
