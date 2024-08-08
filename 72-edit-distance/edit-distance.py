@@ -4,8 +4,6 @@ class Solution:
         word2=" "+word2
         n=len(word1)
         m=len(word2)
-        if n==0 or m==0:
-            return max(n,m)
         dp=[[0]*(m) for _ in range(n)]
         for r in range(n):
             dp[r][0]=r
