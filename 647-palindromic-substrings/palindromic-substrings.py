@@ -1,21 +1,18 @@
-class Solution(object):
-    def countSubstrings(self, s):
-        """
-        :type s: str
-        :rtype: int
-        """
-        res=0
-        allpall=[]
-        for i in range(len(s)):
-          l,r=i,i
-          while l>=0 and r<len(s) and s[l]== s[r]:
-            res+=1
-            l-=1
-            r+=1
-          l,r=i,i+1 
-          while l>=0 and r<len(s) and s[l]== s[r]:
-            res+=1
-            l-=1
-            r+=1
+class Solution:
+    def countSubstrings(self, s: str) -> int:
+        no=0
+        n=len(s)
+        for i,c in enumerate(s):
+            #Odd Palindrome 
+            l,r=i,i
+            while l>=0 and r<n and s[l]==s[r]:
+                no+=1
+                l-=1
+                r+=1
 
-        return res
+            l,r=i,i+1
+            while l>=0 and r<n and s[l]==s[r]:
+                no+=1
+                l-=1
+                r+=1
+        return no
