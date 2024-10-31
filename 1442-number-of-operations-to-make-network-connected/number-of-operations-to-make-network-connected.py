@@ -1,32 +1,25 @@
 class Solution:
     def makeConnected(self, n: int, connections: List[List[int]]) -> int:
-        parent = [i for i in range(n)]
+        if len(connections)<n-1:
+            return -1
+        G=collections.defaultdict(list)
+        for s,d in connections:
+            G[s].append(d)
+            G[d].append(s)
+        visited=set()
 
-        def find(x):
-            if parent[x] != x:
-                parent[x] = find(parent[x])
-            return parent[x]
-
-        def union(n1, n2):
-            p1, p2 = find(n1), find(n2)
-            if p1 == p2:
+        def dfs(src):
+            if src in visited:
                 return False
-            parent[p2] = p1
+            visited.add(src)
+            for n in G[src]:
+                if n not in visited:
+                    dfs(n)
             return True
         
-        # Strategy:
-        # Count uneeded Edges
-        #   where n1 and n2 are in same cluster
-        # Count No of clusters
-        # Check if we have enough to conn cluster
-        uneededEdges = 0
-        for n1, n2 in connections:
-            if not union(n1, n2):
-                uneededEdges += 1
-
-        noOfCluster = len(set([find(i) for i in parent]))
-        minEdgesForFullConnection = noOfCluster - 1
-        if uneededEdges < minEdgesForFullConnection:
-            return -1
-
-        return noOfCluster - 1
+        no_of_clusters=0
+        for i in range(n):
+            if dfs(i):
+                no_of_clusters+=1
+        return no_of_clusters-1
+                
