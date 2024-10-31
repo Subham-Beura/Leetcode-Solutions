@@ -1,16 +1,30 @@
 class Solution:
-    visited=set()
-    def exploreAll(self,V,adj):
-        self.visited.add(V)
-        for i in range(len(adj)):
-            if adj[V][i]==1 and i not in self.visited:
-                self.exploreAll(i,adj)
-    def findCircleNum(self, adj: List[List[int]]) -> int:
-        res=0
-        self.visited=set()
-        n=len(adj)
+    def findCircleNum(self, isConnected: List[List[int]]) -> int:
+        n=len(isConnected)
+        G=collections.defaultdict(list)
+
+        for s in range(n):
+            for d in range(n):
+                if isConnected[s][d]:
+                    G[s].append(d)
+        
+        visited=set()
+
+        provinces=0
+        def dfs(node):
+            if node in visited:
+                return False
+            visited.add(node)
+            for n in G[node]:
+                if n not in visited:
+                    dfs(n)
+            return True
+
         for i in range(n):
-            if i not in self.visited:
-                res+=1
-                self.exploreAll(i,adj)
-        return res
+            if dfs(i):
+                provinces+=1
+        return provinces
+
+
+
+        
