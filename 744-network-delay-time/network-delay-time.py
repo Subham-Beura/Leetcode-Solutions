@@ -5,27 +5,20 @@ class Solution:
             G[s].append((d,w))
         
         visited=set()
-        # Min Heap to store the Edges and get cheapest possible edges every time
-        # Use Format (total_cost,edge_name)
+
         minHeap=[(0,k)]
-        maxTime=0
-
+        res=0
         while minHeap:
-            # Get cheapest edge to expand
-            weight,node=heapq.heappop(minHeap)
+            cost_to_reach,v=heapq.heappop(minHeap)
             
-            # Skip if already visited
-            if node in visited:
+            if v in visited:
                 continue
-            
-            # Add to visited list to prevent cycles
-            visited.add(node)
+            visited.add(v)
 
-            # Check if dist from src to this node is max Distance. DJA gives 
-            maxTime=max(maxTime,weight)
 
-            for nei,w in G[node]:
+            res=max(res,cost_to_reach)
+
+            for nei,w in G[v]:
                 if nei not in visited:
-                    heapq.heappush(minHeap,(weight+w,nei))
-        return maxTime if len(visited)==n else -1
-
+                    heapq.heappush(minHeap,(cost_to_reach+w,nei))
+        return res if len(visited)==n else -1
