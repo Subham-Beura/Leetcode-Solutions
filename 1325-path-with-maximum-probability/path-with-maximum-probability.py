@@ -16,7 +16,9 @@ class Solution:
                 continue
             visited[node]=True
 
-            prob[node]=max(prob[node],cost_to_reach)
+            # prob[node]=max(prob[node],cost_to_reach)
+            if node==end_node:
+                return cost_to_reach
             for nei,p in G[node]:
                 if not visited[nei]:
                     new_prob=cost_to_reach*p*-1
