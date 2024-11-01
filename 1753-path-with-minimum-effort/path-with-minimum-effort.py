@@ -24,5 +24,6 @@ class Solution:
                 if new_r<0 or new_r>=R or new_c<0 or new_c>=C or visited[new_r][new_c]:
                     continue
                 new_effort=max(max_effort,abs(heights[r][c]-heights[new_r][new_c]))
-                heapq.heappush(minHeap,(new_effort,(new_r,new_c)))
+                if new_effort>=max_effort:
+                    heapq.heappush(minHeap,(new_effort,(new_r,new_c)))
         return -1
