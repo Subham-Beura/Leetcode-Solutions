@@ -21,5 +21,5 @@ class Solution:
                 if not visited[nei]:
                     new_prob=cost_to_reach*p*-1
                     heapq.heappush(maxHeap,(new_prob,nei))
-        print(prob)
+        # print(prob)
         return prob[end_node]
