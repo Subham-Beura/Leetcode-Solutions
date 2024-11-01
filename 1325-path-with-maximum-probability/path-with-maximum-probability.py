@@ -20,8 +20,8 @@ class Solution:
             if node==end_node:
                 return cost_to_reach
             for nei,p in G[node]:
-                if not visited[nei]:
-                    new_prob=cost_to_reach*p*-1.0
+                new_prob=cost_to_reach*p*-1.0
+                if not visited[nei] and new_prob*-1 >prob[nei] :
                     heapq.heappush(maxHeap,(new_prob,nei))
         # print(prob)
         return prob[end_node]
