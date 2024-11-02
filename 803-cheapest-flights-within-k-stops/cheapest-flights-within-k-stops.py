@@ -3,19 +3,19 @@ class Solution:
         G=collections.defaultdict(list)
         for s,d,price in flights:
             G[s].append((d,price))
-        minHeap=[(0,0,src)]
+        minHeap=[(0,-1,src)]
 
         cheapestPrice=[float("inf")]*n
 
         while minHeap:
             current_price,stops,port=minHeap.pop(0)
-            if stops-1>k:
+            if stops>k:
                 continue
             cheapestPrice[port]=min(cheapestPrice[port],current_price)
   
             for nei,p in G[port]:
                 new_price=current_price+p
-                if  stops-1>k :
+                if  stops>k :
                     continue
                 if new_price <= cheapestPrice[nei]:
                     minHeap.append((new_price,stops+1,nei))
