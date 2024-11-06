@@ -4,7 +4,7 @@ class Solution:
         def matcher(si,pi):
             if pi==len(p) and si==len(s):
                 return True
-            if pi==len(p) and si<len(s):
+            if pi==len(p) :
                 return False
             if si==len(s) and pi<len(p):
                 while si==len(s) and pi<len(p):
