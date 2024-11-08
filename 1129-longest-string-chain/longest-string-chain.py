@@ -1,6 +1,6 @@
 class Solution:
     def longestStrChain(self, words: List[str]) -> int:
-        words.sort(key=lambda x: len(x)) 
+        words.sort(key=len) 
 
         n=len(words)
         cache={}
