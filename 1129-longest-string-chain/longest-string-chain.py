@@ -3,14 +3,14 @@ class Solution:
         words.sort(key=lambda x: (len(x),x)) 
 
         n=len(words)
-        cache={word:1 for word in words}
+        cache={}
 
         # print(words)
         
         max_len=1
         for word in words:
             word_length=len(word)
-           
+            cache[word]=1
             for i in range(word_length):
                 prev_word= word[:i]+word[i+1:] 
                 if prev_word in words:
