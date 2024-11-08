@@ -17,7 +17,6 @@ class Solution:
                 max_v=cache[i]
                 max_i=i
         res=[]
-        print(cache)
         for i in range(max_v):
             res.append(nums[max_i])
             max_i=prev[max_i]
